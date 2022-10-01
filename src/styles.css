@@ -10,14 +10,20 @@ body {
 input {
     background-color: white;
     border-radius: 5px;
-    border: 1px solid rgb(97, 32, 158);
+    border: 1px solid #000;
     color: black;
     font-size: 1.2rem;
     outline: none;
     padding: 10px 15px;
     width: 100%;
 }
-  
+input::placeholder{
+    color: #000;
+}
+input:focus{
+    border:1px solid #ff0000;
+    color: #ff0000;
+}
 h2 {
     font-size: 1.5rem;
 }
@@ -60,4 +66,15 @@ h3 {
   
   .card img {
     width: 100%;
+}
+.download-button{
+    background-color: purple;
+    color: #fff;
+    padding: .5rem;
+    border-radius: 20%;
+}
+.category-title{
+    text-align: center;
+    text-transform: uppercase;
+    padding: 2rem 0;
 }
