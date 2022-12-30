@@ -4,20 +4,18 @@ import { AddCategory, GifGrid } from './components';
 
 export const GifExpertApp=()=>{
 
-    const [categories, setCategories] = useState(['One Punch', 'Dragon Ball'])
+    const [categories, setCategories] = useState(['fernando alonso', 'lionel messi'])
 
     const onAddCategory=(newCategory)=>{
-        if ( categories.includes(newCategory)) return;
-        // falta validar mayusculas o minisculas etc
+        if ( categories.includes(newCategory.toLowerCase())) return;
         setCategories([newCategory,...categories]);
     }
 
     return (
         <>           
-            {/* <h1>GifExpertApp</h1>           */}
-            <AddCategory 
-                 
-                onNewCategory={ (value)=> onAddCategory(value) }
+            <h1>Gif Expert App Fausto Calviño</h1>          
+            <AddCategory                  
+                onNewCategory={ (value)=> onAddCategory(value.toLowerCase()) }
             />                  
             
             {categories.map((category)=>

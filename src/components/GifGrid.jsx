@@ -3,33 +3,28 @@ import { GifItem } from "./GifItem";
 
 export const GifGrid = ({ category }) => {
 
-
     const { images, isLoading }=useFetchGifs( category );
-
-
-
 
     return (
         <>
             <h3 className="category-title"> { category } </h3>  
             { 
-                isLoading && ( <h2>Cargando...</h2> )
-                
+                isLoading && ( <h2>Cargando...</h2> )                
             }
 
             <div className="card-grid">
+
                 {
-                    images.map( ( image ) => (
-                        
+                    images.length>0 ?                                            
+                    images.map( ( image ) => ( 
                         <GifItem 
-                            key={ image.id }                           
-                            { ...image }
-                            
-                        />
-                    ))
+                        key={ image.id }                           
+                        { ...image }                            
+                    />)) : <p className="error-text">No se han encontrado GIFS para {`"${category}"`}</p>                
+                        
+                    
                 }
             </div>
-
         </>
     )
 }

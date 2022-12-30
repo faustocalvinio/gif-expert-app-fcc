@@ -1,30 +1,34 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 export const AddCategory = ({ onNewCategory }) => {
 
     const [inputValue, setInputValue] = useState()
 
     const onInputChange=(event)=>{
-        // setInputValue('Hola Mundo');
         setInputValue( event.target.value )
     }
     const onSubmit=(event)=>{
         event.preventDefault();
         if( inputValue.trim().length<=1 )return;
-        // setCategories( categories => [inputValue,...categories]);
         onNewCategory( inputValue.trim() )
         setInputValue('');
     }
 
     return (
-        <form onSubmit={ onSubmit }>
-            <input 
-                type="text" 
-                placeholder='Buscar Gifs'
-                value={ inputValue }   
-                onChange={ onInputChange } 
-            />
-        </form>
+        <>        
+            <form onSubmit={ onSubmit }>
+                <input 
+                    className="category-input"
+                    type="text" 
+                    placeholder="Buscar Gifs"
+                    value={ inputValue }   
+                    onChange={ onInputChange } 
+                />
+            </form>
+            <span className="tip-search">
+                Type a name and press Enter to search a new category
+            </span>
+        </>
         
     )
 }
